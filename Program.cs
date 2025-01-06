@@ -223,29 +223,33 @@ IScheduler scheduler = await SchedulerBuilder
     })
     .BuildScheduler();
 
-await scheduler.Start();
+await scheduler.Start(); //is async
 
-/* Test key and trigger */
-var jobKey = new JobKey("hello-world", "test-jobs");
+/* Test key and trigger 
+*  once job defined, can create different triggers.
+*/
+var jobKey = new JobKey("hello-world", "test-jobs"); //name, group
 var jobTrigger = TriggerBuilder.Create()
     .WithIdentity("trigger-name", "test-triggers")
     .ForJob(jobKey)
     .StartAt(DateTimeOffset.Now.AddSeconds(5))
     .Build();
 
-var jobDetail = JobBuilder
+var jobDetail = JobBuilder //linked to jobkey by identity
     .Create<OurTestJob>()
     .WithIdentity(jobKey)
     .Build();
 
-await scheduler.ScheduleJob(jobDetail, jobTrigger);
+await scheduler.ScheduleJob(jobDetail, jobTrigger); //is async
 
-/* Run the app */
+/* Run the app
+ * If removed will work of the minimal quartz api.
+ */
 app.Run();
 
 sealed class OurTestJob : IJob
 {
-    public Task Execute(IJobExecutionContext context)
+    public Task Execute(IJobExecutionContext context) //can run async
     {
         Console.WriteLine("Hello, world!");
         return Task.CompletedTask;
