@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuartzSchedulerTraining")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad7459f5955ad6428e031a9329c202e424cdfc56")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f2226517788709e73e1b85fe8a72348cebc249c")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuartzSchedulerTraining")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuartzSchedulerTraining")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
